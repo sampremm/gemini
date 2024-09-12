@@ -11,7 +11,7 @@ const RootLayout = () => {
           <span>Gemini</span>
         </Link>
         <div className="user">
-         
+         user
         </div>
       </header>
       <main>
