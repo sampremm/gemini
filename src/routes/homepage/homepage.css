@@ -1,66 +1,235 @@
-.Homepage{
+.Homepage {
     display: flex;
     align-self: center;
-    gap:100px;
+    gap: 100px;
     height: 100%;
+    position: relative;
 
-    .left{
+    @media screen and (max-width: 1024px) {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .left {
         flex: 1;
         display: flex;
-        flex-direction:column;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 16px;
         text-align: center;
 
-        h1{
+        h1 {
             font-size: 128px;
             background: linear-gradient(to right, #FC466B, #3F5EFB);
             -webkit-background-clip: text;
-            -webkit-text-fill-color: text;
-            color: transparent;
+            -webkit-text-fill-color: transparent;
         }
-        h3{
+        h3 {
             font-weight: 400;
             max-width: 70%;
-    
         }
-        a{
+        a {
             padding: 15px 30px;
             background-color: #217bfe;
             color: white;
             border-radius: 20px;
-            font-size:smaller;
+            font-size: smaller;
             margin-top: 20px;
 
-            &:hover{
+            &:hover {
                 background-color: white;
                 color: #217bfe;
             }
-        }   
+        }
     }
 
-    .right{
+    .right {
         flex: 1;
-    } 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
 
-    .obit{
+        .imagecontainer {
+            display: flex;
+            align-self: center;
+            justify-content: center;
+            background-color: #140e2d;
+            border-radius: 50px;
+            width: 80%;
+            height: 50%;
+            position: relative;
+
+            .bigcontainer {
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                position: absolute;
+                top: 0;
+                left: 0;
+                border-radius: 50px;
+
+                .big {
+                    background-image: url("/Gemini-scaled.jpg");
+                    background-size: auto 100%;
+                    width: 200%;
+                    height: 100%;
+                    opacity: 0.6;
+                    animation: 8s ease-in-out infinite slideinout;
+                }
+            }
+
+            .bot {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                animation: 3s linear infinite alternate botanimate;
+            }
+        }
+    }
+
+    .obit {
         position: absolute;
         bottom: 0;
         left: 0;
         opacity: 0.15;
-        animation: 100s linear infinite rotateOrbital
-
-    
+        animation: 100s linear infinite rotateOrbital;
+        z-index: -1;
     }
 
+    .footer {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+
+        .kk {
+            width: 16px;
+            height: 16px;
+        }
+
+        .links {
+            display: flex;
+            gap: 20px;
+            color: #888;
+            font-size: 10px;
+        }
+    }
 }
 
-@keyframes rotateOrbital{
-    0%{
+@keyframes rotateOrbital {
+    0% {
         transform: rotate(0deg);
     }
-    100%{
-        transform: rotate(v90deg);
+    100% {
+        transform: rotate(60deg);
+    }
+}
+
+@keyframes botanimate {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    100% {
+        transform: scale(1.1) rotate(-5deg);
+    }
+}
+
+@keyframes slideinout {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+/* For tablets and small laptops (up to 1024px) */
+@media screen and (max-width: 1024px) {
+    .Homepage {
+        flex-direction: column;
+        gap: 40px;
+        padding: 20px;
+
+        .left {
+            h1 {
+                font-size: 64px;
+            }
+            h3 {
+                font-size: 16px;
+                max-width: 80%;
+            }
+        }
+
+        .right {
+            .imagecontainer {
+                width: 90%;
+                height: auto;
+
+                .bigcontainer {
+                    .big {
+                        width: 175%;
+                    }
+                }
+            }
+        }
+
+        .footer {
+            gap: 15px;
+        }
+    }
+}
+
+/* For large desktops (up to 1440px) */
+@media screen and (max-width: 1440px) {
+    .Homepage {
+        gap: 80px;
+
+        .left {
+            h1 {
+                font-size: 96px;
+            }
+            h3 {
+                font-size: 18px;
+                max-width: 75%;
+            }
+        }
+
+        .right {
+            .imagecontainer {
+                width: 85%;
+            }
+        }
+
+        .footer {
+            gap: 20px;
+        }
+    }
+}
+
+/* For ultra-wide screens (above 1440px) */
+@media screen and (min-width: 1440px) {
+    .Homepage {
+        gap: 100px;
+
+        .left {
+            h1 {
+                font-size: 128px;
+            }
+            h3 {
+                font-size: 20px;
+                max-width: 70%;
+            }
+        }
+
+        .right {
+            .imagecontainer {
+                width: 80%;
+            }
+        }
     }
 }

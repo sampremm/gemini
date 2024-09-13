@@ -12,8 +12,23 @@ const Homepage = ()=>{
          device for the deafblind. The glove translates the hand-touch alphabet Lorm, a common</h3>
         <Link to="/Dashboard">Get Started</Link>
         </div>
-        <div className='right'></div>
+       <div className="right">
+            <div className="imagecontainer">
+                <div className="bigcontainer">
+                    <div className="big"></div>
+                </div>
+                <img src="/bot.png" className="bot"></img>
+            </div>
         </div>
+        <div className="footer"> 
+        <img src="/logo4.png" className='kk' />
+        <div className="links ">
+            <Link to="/">Terms and Conditions</Link>
+            <span>|</span>
+            <Link to="/">Privacy Policy</Link>
+        </div>
+        </div>
+    </div>
 
     );
 }
